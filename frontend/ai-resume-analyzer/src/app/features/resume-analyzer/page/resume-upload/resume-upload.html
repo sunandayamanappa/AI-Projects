@@ -1,0 +1,66 @@
+<h2>Resume analyzer</h2>
+
+<input type="file" (change)="onFileSelected($event)">
+
+
+<br><br>
+
+<textarea
+
+  [(ngModel)]="jobDescription"
+
+  rows="10"
+
+  cols="80"
+
+  placeholder="Paste Job Description">
+
+</textarea>
+<button [disabled]="!selectedFile" (click)="analyze()">Analyze resume</button>
+<ng-container *ngIf="analysis">
+
+
+
+<h3>
+  Matching Skills
+</h3>
+
+<ul>
+  <li
+   *ngFor="
+     let item of analysis?.matchingSkills
+   ">
+    {{ item }}
+  </li>
+</ul>
+
+<h3>
+  Missing Skills
+</h3>
+
+<ul>
+  <li
+   *ngFor="
+     let item of analysis?.missingSkills
+   ">
+    {{ item }}
+  </li>
+</ul>
+<h3>
+  Recommendations
+</h3>
+
+<ul>
+  <li
+   *ngFor="
+     let item of analysis?.recommendations
+   ">
+    {{ item }}
+  </li>
+</ul>
+
+
+
+
+</ng-container>
+

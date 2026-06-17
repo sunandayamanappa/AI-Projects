@@ -1,0 +1,151 @@
+RAG (Retrieval Augmented Generation)
+
+Definition
+
+RAG is a technique that enhances Large Language Models by retrieving relevant information from external documents and providing that information to the LLM before generating a response.
+
+Simple Explanation
+
+Instead of asking the AI to answer from its own knowledge:
+
+Question
+   ↓
+LLM
+   ↓
+Answer
+
+RAG first finds relevant information:
+Question
+   ↓
+Retrieve Relevant Data
+   ↓
+LLM
+   ↓
+Answer
+
+
+Example
+
+Suppose we have:
+Resume.pdf
+
+
+User asks:
+Does Sunanda have Kubernetes experience?
+
+RAG flow:
+Question
+   ↓
+Find relevant resume section
+   ↓
+"Docker, Kubernetes, GCP"
+   ↓
+LLM
+   ↓
+Answer:
+Yes, Sunanda has Kubernetes experience.
+
+
+Why Use RAG?
+
+* Provides up-to-date information
+* Works with private company documents
+* Reduces hallucinations
+* Avoids sending huge documents to the LLM
+
+Interview Answer
+
+RAG (Retrieval Augmented Generation) is an AI architecture where relevant information is retrieved from external data sources and supplied to an LLM to generate more accurate and context-aware responses.
+
+⸻
+
+Embeddings
+
+Definition
+
+Embeddings are numerical vector representations of text that capture semantic meaning. Similar concepts produce vectors that are close to each other in vector space.
+
+Simple Explanation
+
+Convert text into numbers.
+
+"Kubernetes"
+      ↓
+[0.21, 0.44, 0.78, ...]
+
+"Container Orchestration"
+      ↓
+[0.23, 0.42, 0.75, ...]
+
+These vectors are close because the meanings are similar.
+
+
+Example
+
+Resume contains:
+AWS
+Azure
+GCP
+
+User asks:
+Does Sunanda have cloud experience?
+
+Keyword Search:
+cloud
+
+Not found.
+
+
+Embedding Search:
+
+Understands:
+
+AWS
+Azure
+GCP
+
+
+are related to 
+cloud computing
+
+
+Therefore it finds the correct chunk.
+
+
+Why Use Embeddings?
+
+* Semantic search
+* Similarity search
+* Recommendation systems
+* RAG applications
+* Chat with PDF systems
+
+Interview Answer
+
+An embedding is a vector representation of text that captures semantic meaning. It enables similarity search by placing related concepts close together in vector space, which is a fundamental building block of RAG systems.
+
+⸻
+
+
+RAG 
+Find relevant information first,
+then ask the LLM to generate an answer.
+
+
+EMBEDDING
+Convert text into vectors so computers can search by meaning instead of keywords.
+
+
+Document
+   ↓
+Chunking
+   ↓
+Embeddings
+   ↓
+Vector Database
+   ↓
+Similarity Search
+   ↓
+LLM
+   ↓
+Answer
