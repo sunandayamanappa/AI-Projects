@@ -1,11 +1,9 @@
 const express = require('express');
 const multer = require('multer');
 const {extractText} = require('../services/pdf.service.js')
-const {
+const {analyzeResume} = require('../services/ai.service');
 
-    analyzeResume
 
-} = require('../services/ai.service');
 const router = express.Router();
 
 const upload = multer({

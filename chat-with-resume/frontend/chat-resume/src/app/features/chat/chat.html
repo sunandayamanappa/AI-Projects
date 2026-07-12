@@ -1,0 +1,9 @@
+<h2>Chat resume</h2>
+
+<input type="file" (change)="uploadResume($event)">
+<br><br>
+<input type="text" [(ngModel)]="question">
+<button (click)="askQuestion()">Ask</button>
+
+<p>{{answer}}</p>
+ 
