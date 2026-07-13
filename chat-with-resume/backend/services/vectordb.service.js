@@ -24,10 +24,6 @@ async function storeDataInVectoreDB(chunks) {
             documents: [chunk]
         });
     }
-
-    console.log(
-        await collection.count()
-    );
 }
 
 async function getVectorDBData(){

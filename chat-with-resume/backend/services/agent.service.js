@@ -25,12 +25,19 @@ async function decideToolWithAI(question){
             summarize_resume
             analyze_resume_against_jd
             generate_interview_questions
+            compare_resume_against_jd
 
             Rules:
-                - Return exactly ONE tool.
-                - Never explain.
-                - Never return multiple tools.
-                - If none match, return search_resume.
+                - Return only JSON format response which is mentioned below, if needed return multiple tools in JSON
+                JSON Format :
+                {
+                    steps: [
+                        { 
+                            tool: '<tool_name>'
+                        }
+                    ]
+                }
+                
 
             Question: ${question}
             `

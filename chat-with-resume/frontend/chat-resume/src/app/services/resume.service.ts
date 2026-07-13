@@ -7,8 +7,9 @@ import { Observable } from 'rxjs';
 export class ResumeService {
     private http = inject(HttpClient);
 
-    askQuestion(question: string){
-        return this.http.post('http://localhost:3000/api/chat/ask', {question})
+    askQuestion(payload: any){
+        const url = 'http://localhost:3000/api/chat/ask';
+        return this.http.post(url, payload)
     }
 
     uploadResume(file: File): Observable<any> {

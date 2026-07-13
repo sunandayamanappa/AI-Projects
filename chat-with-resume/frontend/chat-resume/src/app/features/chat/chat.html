@@ -1,9 +1,40 @@
-<h2>Chat resume</h2>
+<div class="chat-section">
+    <h2>Chat with resume</h2>
 
-<input type="file" (change)="uploadResume($event)">
-<br><br>
-<input type="text" [(ngModel)]="question">
-<button (click)="askQuestion()">Ask</button>
+    <div class="section">
+        <h2>Upload resume</h2>
+        <input type="file" (change)="uploadResume($event)">
+        <br>
+    </div>
 
-<p>{{answer}}</p>
- 
+
+    <div class="section">
+        <h2>Ask about candidate</h2>
+        <input type="text" [(ngModel)]="question" placeholder="Ask question">
+        <br>
+        <button (click)="askQuestion()">Ask</button>
+    </div>
+
+
+    <div class="section">
+        <h2>Compare against JD</h2>
+        <input type="text" #questions placeholder="Ask question">
+        <br>
+        <input type="text" #jd placeholder="Provide JD">
+        <br>
+        <button (click)="compareAgainstJD(questions.value, jd.value)">Compare</button>
+    </div>
+
+    @if(answer) {
+    <div class="section answer">
+        <h1>Answer</h1>
+        <span [innerHTML]="answer"></span>
+    </div>
+    } @else {
+        <div class="section">
+        <div>Wait for response........</div>
+        </div>
+    }
+
+
+</div>

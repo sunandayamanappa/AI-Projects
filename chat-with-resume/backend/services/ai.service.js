@@ -2,7 +2,8 @@ const { Ollama } = require('ollama');
 const ollama = new Ollama();
 
 
-async function askQuestion(question, context) {
+async function askQuestion(input) {
+    const {question, context} = input
     const response = await ollama.chat({
         model: 'llama3.2',
         options: {

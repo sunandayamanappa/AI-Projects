@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ResumeService } from '../../services/resume.service';
+import { marked } from 'marked';
 
 @Component({
   selector: 'app-chat',
@@ -12,17 +13,15 @@ import { ResumeService } from '../../services/resume.service';
 export class Chat {
 private cdr = inject(ChangeDetectorRef);
   
-
+  jd: string = '';
   question: string = '';
   answer: string = '';
   private resumeService = inject(ResumeService);
 
   askQuestion() {
-    console.log('---------', this.question)
-    this.resumeService.askQuestion(this.question).subscribe((result: any) => {
-      this.answer = result.success;
-      this.cdr.detectChanges();
-    })
+    const payload = { question: this.question}
+    this.getResponse(payload);
+    this.cdr.detectChanges();
   }
 
 
@@ -32,5 +31,18 @@ private cdr = inject(ChangeDetectorRef);
       this.resumeService.uploadResume(file.files[0]).subscribe()
     }
 
+  }
+
+  compareAgainstJD(question: string, jd: string){
+    const payload = { question, jd};
+    this.getResponse(payload);
+    this.cdr.detectChanges();
+  }
+
+  getResponse(payload: {question: string, jd?: string}) {
+    this.resumeService.askQuestion(payload).subscribe((result: any) => {
+      this.answer = marked.parse(result.success) as string;
+      this.cdr.detectChanges();
+    })
   }
 }

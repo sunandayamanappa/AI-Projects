@@ -1,0 +1,26 @@
+.chat-section {
+    .section {
+        padding: 1rem;
+        margin: 1rem;
+        border: solid 1px #9FA8DA;
+        border-radius: 1rem;
+    }
+
+    input {
+        margin: 0.5rem;
+        border-radius: 0.25rem;
+    }
+
+    button {
+        margin: 0.25rem 0.5rem;
+        color: white;
+        background: rgb(65, 65, 136);
+        border-radius: 2rem;
+        width: auto;
+        height: 2rem;
+    }
+
+    .answer {
+        white-space: pre-wrap;
+    }
+}
