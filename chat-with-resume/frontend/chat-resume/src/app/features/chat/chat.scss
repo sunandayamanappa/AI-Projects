@@ -23,4 +23,13 @@
     .answer {
         white-space: pre-wrap;
     }
+    
+    .header {
+        height: 4rem;
+        color: white;
+        background: #03A9F4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

@@ -8,54 +8,49 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule],
   templateUrl: './resume-upload.html',
   styleUrl: './resume-upload.scss',
-  standalone:true
+  standalone: true
 })
 export class ResumeUpload {
   selectedFile!: File
-  analysis:any = '';
+  analysis: any = '';
   jobDescription = '';
 
   dummyJD = `Looking for Senior Angular Developer.
+              Required Skills:
 
-Required Skills:
+              Angular
+              TypeScript
+              RxJS
+              Docker
+              Kubernetes
+              AWS
+              CI/CD
 
-Angular
-TypeScript
-RxJS
-Docker
-Kubernetes
-AWS
-CI/CD
+              Experience:
+              5+ years`
+  constructor(private resumeService: Resume, private cdr: ChangeDetectorRef) {
 
-Experience:
-5+ years`
-constructor(private resumeService: Resume, private cdr: ChangeDetectorRef ) {
-
-}
-
-onFileSelected(file: Event){
-  const input = file.target as HTMLInputElement;
-
-  if(input.files?.length){
-    this.selectedFile = input.files[0];
   }
 
-}
+  onFileSelected(file: Event) {
+    const input = file.target as HTMLInputElement;
+    if (input.files?.length) {
+      this.selectedFile = input.files[0];
+    }
 
-analyze() {
-  this.resumeService.uploadResume(this.selectedFile, this.jobDescription
-  ).subscribe({
-    next: (response : any)=> {
+  }
 
-          
-          this.analysis = response.content;
-          console.log(this.analysis
-          )
-          this.cdr.detectChanges()
+  analyze() {
+    this.resumeService.uploadResume(this.selectedFile, this.jobDescription
+    ).subscribe({
+      next: (response: any) => {
+        this.analysis = response.content;
+        console.log(this.analysis
+        )
+        this.cdr.detectChanges()
+      }
+    })
 
-        }
-  })
-
-}
+  }
 
 }

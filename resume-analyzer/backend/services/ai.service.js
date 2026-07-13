@@ -9,67 +9,63 @@ async function analyzeResume(resumeText, jobDescription) {
             {
                 role: 'user',
                 content: `
-You are an ATS Resume Analyzer.
+                        You are an ATS Resume Analyzer.
 
-Compare the resume
+                        Compare the resume
 
-against the job description.
+                        against the job description.
 
-Return ONLY valid JSON.
+                        Return ONLY valid JSON.
 
-{
+                        {
 
-  "matchScore": 0,
+                        "matchScore": 0,
 
-  "matchingSkills": [],
+                        "matchingSkills": [],
 
-  "missingSkills": [],
+                        "missingSkills": [],
 
-  "recommendations": []
+                        "recommendations": []
 
-}
+                    }
 
-Resume:
+                    Resume:
 
-${resumeText}
+                    ${resumeText}
 
-Job Description:
+                    Job Description:
 
-${jobDescription}
-`
+                    ${jobDescription}
+                    `
             }
         ],
         options: {
 
-    temperature: 0
+            temperature: 0
 
-  }
+        }
     });
 
     const content = response.message.content.trim();
     try {
 
-    if (typeof content === 'object') {
+        if (typeof content === 'object') {
 
-        return content;
+            return content;
+
+        }
+
+        return JSON.parse(content.trim());
+
+    } catch (error) {
+        console.error('Parse Error:', error);
+        throw error;
 
     }
-
-    return JSON.parse(content.trim());
-
-} catch (error) {
-
-    console.error('Parse Error:', error);
-
-    console.error('Content:', content);
-
-    throw error;
-
-}
 }
 
 module.exports = {
 
-  analyzeResume
+    analyzeResume
 
 };
