@@ -1,12 +1,13 @@
 .chat-section {
     .section {
+        width: 50%;
         padding: 1rem;
         margin: 1rem;
         border: solid 1px #9FA8DA;
         border-radius: 1rem;
     }
 
-    input {
+    input , textarea {
         margin: 0.5rem;
         border-radius: 0.25rem;
     }
@@ -23,7 +24,7 @@
     .answer {
         white-space: pre-wrap;
     }
-    
+
     .header {
         height: 4rem;
         color: white;

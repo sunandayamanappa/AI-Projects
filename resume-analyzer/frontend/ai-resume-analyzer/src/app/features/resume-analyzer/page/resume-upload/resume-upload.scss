@@ -28,7 +28,19 @@
         justify-content: center;
         align-items: center;
     }
-    .upload-section{
+
+    .upload-section {
         margin: 1rem 0;
+    }
+
+    .container-section {
+        display: grid;
+    }
+
+    .analyze-button {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
     }
 }

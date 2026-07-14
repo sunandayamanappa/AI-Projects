@@ -20,7 +20,7 @@
         <h2>Compare against JD</h2>
         <input type="text" #questions placeholder="Ask question">
         <br>
-        <input type="text" #jd placeholder="Provide JD">
+        <textarea type="text" #jd placeholder="Provide JD"></textarea>
         <br>
         <button (click)="compareAgainstJD(questions.value, jd.value)">Compare</button>
     </div>
