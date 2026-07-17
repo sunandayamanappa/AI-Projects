@@ -1,0 +1,28 @@
+<div>
+    <strong class="header">Coding Assistant</strong>
+    <div class="body-container">
+        <strong class="label">Provide code: </strong>
+        <textarea class="code-snnipet" [ngModel]="code()" (ngModelChange)="onCodeChange($event)"></textarea>
+        @for(functionalButton of callAssistant ;track functionalButton.id) {
+            <div class="functional-button">
+            @if(activeButtonSpinner() === functionalButton.label) {
+                <div class="spinner">
+                    <span>{{functionalButton.message}}</span>
+                    <mat-spinner></mat-spinner>
+                </div>
+
+            } @else{
+            <button (click)="functionalButton.method()">
+                {{functionalButton.label}}
+            </button>
+            }
+
+        </div>
+        }
+        
+    </div>
+    @if(result()) {
+    <div  class="answer" [innerHTML]="result()"></div>
+
+    }
+</div>
